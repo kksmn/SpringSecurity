@@ -47,7 +47,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user").hasRole("ROLE_USER")
                 .and()
                 .formLogin().loginPage("/login")
-                .defaultSuccessUrl("/admin", true) // It renders a login form
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
