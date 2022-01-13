@@ -1,12 +1,24 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Home Page</title>
+    <title>Title</title>
 </head>
 <body>
-<span style="color: green;">login successful!</span>
-<a href="logout">Logout</a>
-<hr>
-<h3>Welcome Admin</h3>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Email</th>
+    </tr>
+    <c:forEach items="${list}" var="user" >
+        <tr>
+            <td>${user.getId() }</td>
+            <td>${user.getUsername() }</td>
+            <td>${user.getEmail() }</td>
+        </tr>
+    </c:forEach>
+</table>
+<a href="logout.jsp">logout</a>
 </body>
 </html>

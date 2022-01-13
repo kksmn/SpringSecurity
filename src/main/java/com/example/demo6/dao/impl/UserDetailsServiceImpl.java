@@ -3,6 +3,7 @@ package com.example.demo6.dao.impl;
 import com.example.demo6.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -20,11 +21,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        final com.example.demo6.entity.User user =null;
-        if (user == null) {
-            throw new UsernameNotFoundException(name);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        final com.example.demo6.entity.User customer = userRepository.findByEmail(email);
+        if (customer == null) {
+            throw new UsernameNotFoundException(email);
         }
-        return (UserDetails) user;
+        UserDetails user = User.withUsername(customer.getEmail())
+                .password(customer.getPassword()).build();
+        return user;
     }
 }

@@ -10,9 +10,8 @@ public class userService {
     @Autowired
     private UserRepository userEntityRepository;
 
-    public List<User> getUserInformation(String email)
+    public List<User> getUserInformation()
     {
         return userEntityRepository.findAll();
     }
-
 }

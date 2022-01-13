@@ -20,7 +20,13 @@ public class HelloServlet {
     @RequestMapping(value="/admin", method=RequestMethod.GET)
     public String admin(HttpServletRequest request,HttpServletResponse response) {
         userService service=new userService();
-        /*request.setAttribute(service.);*/
+        request.setAttribute("list",service.getUserInformation());
         return "admin";
+    }
+    @RequestMapping(value="/user", method=RequestMethod.GET)
+    public String user(HttpServletRequest request,HttpServletResponse response) {
+        userService service=new userService();
+        request.setAttribute("list",service.getUserInformation());
+        return "user";
     }
 }
