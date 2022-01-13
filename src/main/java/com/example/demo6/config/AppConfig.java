@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @Configuration
 @ComponentScan({ "com.example.demo6" })
-
+@EnableJpaRepositories("com.example.demo6.dao.impl")
 public class AppConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {

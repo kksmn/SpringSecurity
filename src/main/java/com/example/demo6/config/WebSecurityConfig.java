@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().
                 antMatchers("/index", "/user","/").permitAll()
-                .antMatchers("/admin").hasAuthority("ADMIN")
+                .antMatchers("/admin").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .defaultSuccessUrl("/admin", true) // It renders a login form

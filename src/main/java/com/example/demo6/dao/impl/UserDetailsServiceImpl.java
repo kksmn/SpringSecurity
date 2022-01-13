@@ -1,7 +1,6 @@
 package com.example.demo6.dao.impl;
 
 import com.example.demo6.repository.UserRepository;
-import com.example.demo6.service.MyUserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.userdetails.UserDetails;
