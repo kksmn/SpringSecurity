@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin").hasRole("ROLE_ADMIN")
                 .antMatchers("/user").hasRole("ROLE_USER")
                 .and()
-                .formLogin()
+                .formLogin().loginPage("/login")
                 .defaultSuccessUrl("/admin", true) // It renders a login form
                 .and()
                 .logout()
