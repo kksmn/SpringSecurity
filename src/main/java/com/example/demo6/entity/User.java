@@ -19,6 +19,12 @@ public class User {
     @Column(name="password")
     private String password;
 
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role roleEntity;
+
+    public String getRoles(){ return roleEntity.getName();}
+
     public String getPassword() {
         return password;
     }
